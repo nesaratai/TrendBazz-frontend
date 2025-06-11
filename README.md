@@ -34,7 +34,7 @@
 | Frontend       | React, React Router                             |
 | Backend        | Express.js                                      |
 | Database       | MongoDB with Mongoose ODM                       |
-| Authentication | Express Sessions / JWT                          |
+| Authentication | JWT                                             |
 | Deployment     |  / MongoDB Atlas                                |
 
 ---
