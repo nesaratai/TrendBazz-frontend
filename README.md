@@ -40,3 +40,13 @@
 ---
 
 ## 🗃️ Project Structure
+
+## 🔐 User Roles
+- **Admin:** Has access to full dashboard for managing users, orders, categories, and products
+- **Customer:** Can browse, add to cart, and order products
+
+## 🧪 Future Improvements
+- Search & filtering
+- Payment integration
+- Product ratings & reviews
+- Responsive mobile-first design
