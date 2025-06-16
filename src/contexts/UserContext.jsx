@@ -18,7 +18,6 @@ function UserProvider({ children }) {
   // This is the user state and the setUser function that will update it!
   // This variable name isn't special; it's just convention to use `value`.
   const value = { user, setUser };
-
   return (
     <UserContext.Provider value={value}>
       {/* The data we pass to the value prop above is now available to */}

@@ -1,0 +1,30 @@
+.navbar.luxury {
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: none;
+    font-family: 'Cinzel', serif;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .navbar.luxury .navbar-brand,
+  .navbar.luxury .nav-link,
+  .navbar.luxury .dropdown-toggle {
+    color: #5c4000;
+    font-weight: 600;
+  }
+  
+  .navbar.luxury .nav-link:hover,
+  .navbar.luxury .dropdown-item:hover,
+  .navbar.luxury .navbar-brand:hover {
+    color: #d6b94d;
+  }
+  
+  .navbar.luxury .dropdown-menu {
+    background-color: #fffdf7;
+    border: none;
+}
+
+.navbar.luxury .dropdown-item {
+  color: #5c4000;
+}
