@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import { UserContext } from '../../contexts/UserContext';
 import { CartContext } from '../../contexts/CartContext';
 import './NavBar.css'; 
-import logo from '../../assets/react.svg'
+import logo from '../../assets/logo.png'
 
 const NavBar = () => {
     // Get the setUser function from the UserContext
@@ -35,8 +35,8 @@ const NavBar = () => {
             <img
               src={logo}
               alt="TrendBazz Logo"
-              width="30"
-              height="30"
+              width="50"
+              height="50"
               className="d-inline-block align-top me-2"
             />
             TrendBazz
@@ -49,6 +49,7 @@ const NavBar = () => {
                 <NavDropdown.Item as={Link} to="/category/electronics">Electronics</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/category/fashion">Fashion</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/category/home">Home & Garden</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/category/home">Books</NavDropdown.Item>
               </NavDropdown>
               <Nav.Link as={Link} to="/about">About Us</Nav.Link>
               <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link>
@@ -56,7 +57,7 @@ const NavBar = () => {
               {user ? (
                 <>
                 <Nav.Link as={Link} to="/profile">My Account</Nav.Link>
-                <Nav.Link href="/cart" className="ms-3">
+                <Nav.Link as={Link} to="/cart" className="ms-3">
                 🛒 Cart: ${formattedTotal}</Nav.Link>
                 <Nav.Link as={Link} to="/"onClick={handleSignOut}>Sign Out</Nav.Link>
                 </>

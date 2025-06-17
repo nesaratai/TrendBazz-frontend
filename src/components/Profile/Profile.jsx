@@ -12,7 +12,10 @@ const Profile = () => {
   return (
     <div className="container mt-4">
       <h2>Welcome, {user.username}!</h2>
-      <p>Email: {user.email}</p>
+      <p>Name: {user.fname} {user.lname}</p>
+      <p>Date of Birth: {user.dob}</p>
+      <p>Email: {user.emailaddress}</p>
+      <h2>Orders</h2>
       {/* add more profile details here */}
     </div>
   );
