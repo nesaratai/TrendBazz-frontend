@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
-  
+  // add items to cart
   const addToCart = (product) => {
     setCartItems((prev) => {
       const existing = prev.find(item => item._id === product._id || item._id === product._id);
@@ -27,13 +27,13 @@ export const CartProvider = ({ children }) => {
       }
     });
   };
-
+ //Remove Item form cart
   const removeFromCart = (id) => {
     setCartItems((prev) =>
-      prev.filter(item => item.id !== id && item._id !== id)
+      prev.filter(item => item._id !== id && item._id !== id)
     );
   };
-
+// Clear Cart items
   const clearCart = () => {
     setCartItems([]);
   };
