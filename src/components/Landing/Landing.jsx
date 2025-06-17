@@ -2,10 +2,12 @@ import { useContext, useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { getAllProducts } from '../../services/productService';
 import { CartContext } from '../../contexts/CartContext';
+import { UserContext } from '../../contexts/UserContext';
 
 const Landing = () => {
   const [products, setProducts] = useState(null);
   const { addToCart } = useContext(CartContext); 
+  const { user } = useContext(UserContext);
   
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,8 +28,8 @@ const Landing = () => {
   return (
     <main>
       <Container>
-        <h1>Hello, you are on the landing page for visitors.</h1>
-        <p>Sign up now, or sign in to buy!</p>
+        <h1> Welcome to TrendBazz </h1>
+  
 
         <Row>
           {products &&
@@ -47,8 +49,9 @@ const Landing = () => {
                     </Card.Text>
                     <button
                       className="btn btn-primary"
+                      disabled={!user}
                       onClick={() => addToCart(product)}>
-                    Add to Cart</button>
+                        {user ? 'Add to Cart':'Sign in to Add'}</button>
                   </Card.Body>
                 </Card>
               </Col>

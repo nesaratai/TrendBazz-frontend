@@ -1,5 +1,5 @@
-// src/components/SignInForm/SignInForm.jsx
 
+import { Form, Button, Container } from 'react-bootstrap';
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
 
@@ -37,38 +37,43 @@ const SignInForm = () => {
 
   return (
     <main>
-      <h1>Sign In</h1>
-      <p>{message}</p>
-      <form autoComplete='off' onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='email'>Username:</label>
-          <input
-            type='text'
-            autoComplete='off'
-            id='username'
-            value={formData.username}
-            name='username'
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor='password'>Password:</label>
-          <input
-            type='password'
-            autoComplete='off'
-            id='password'
-            value={formData.password}
-            name='password'
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <button>Sign In</button>
-          <button onClick={() => navigate('/')}>Cancel</button>
-        </div>
-      </form>
+      <Container style={{ maxWidth: '500px' }}>
+        <h1 className="my-4">Sign In</h1>
+        <p>{message}</p>
+  
+        <Form autoComplete="off" onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="username">
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              type="text"
+              value={formData.username}
+              name="username"
+              onChange={handleChange}
+              required
+            />
+          </Form.Group>
+  
+          <Form.Group className="mb-3" controlId="password">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              value={formData.password}
+              name="password"
+              onChange={handleChange}
+              required
+            />
+          </Form.Group>
+  
+          <div className="d-flex justify-content-between">
+            <Button variant="primary" type="submit">
+              Sign In
+            </Button>
+            <Button variant="secondary" onClick={() => navigate('/')}>
+              Cancel
+            </Button>
+          </div>
+        </Form>
+      </Container>
     </main>
   );
 };
