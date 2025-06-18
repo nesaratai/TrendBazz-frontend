@@ -57,6 +57,9 @@ const NavBar = () => {
               {user ? (
                 <>
                 <Nav.Link as={Link} to="/profile">My Account</Nav.Link>
+                {user.role === 'Admin' && (
+                  <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+                )}
                 <Nav.Link as={Link} to="/cart" className="ms-3">
                 🛒 Cart: ${formattedTotal}</Nav.Link>
                 <Nav.Link as={Link} to="/"onClick={handleSignOut}>Sign Out</Nav.Link>

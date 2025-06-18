@@ -23,12 +23,12 @@ const App = () => {
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/cart" element={<Cart />} />
-        {user?.role === 'admin' ? (
-    <Route path="/dashboard" element={<Dashboard />} />
-  ) : (
-    // Redirect non-admin users away from /dashboard
-    <Route path="/dashboard" element={<Navigate to="/" replace />} />
-  )}
+        {user?.role === 'Admin' ? (
+          <Route path="/dashboard" element={<Dashboard />} />
+          ) : (
+          // Redirect non-admin users away from /dashboard
+          <Route path="/dashboard" element={<Navigate to="/" replace />} />
+            )}
       </Routes>
     </>
   );

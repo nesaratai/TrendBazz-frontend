@@ -1,6 +1,7 @@
 import { useContext } from 'react';
-import { Container, ListGroup, Button } from 'react-bootstrap';
+import { Container, ListGroup, Button, Image  } from 'react-bootstrap';
 import { CartContext } from '../../contexts/CartContext';
+import { Link } from 'react-router';
 
 const Cart = () => {
   const { cartItems, removeFromCart, clearCart } = useContext(CartContext);
@@ -16,6 +17,12 @@ const Cart = () => {
           <ListGroup>
             {cartItems.map((item) => (
               <ListGroup.Item key={item._id}>
+                    <Image
+                  src={item.img}
+                  alt={item.name}
+                  style={{ width: '50px', height: '50px', objectFit: 'cover', marginRight: '10px' }}
+                  rounded
+                />
                 <strong>{item.name}</strong> — Quantity: {item.quantity} — ${item.price.toFixed(2)}
                 <Button
                   variant="danger"
@@ -28,10 +35,14 @@ const Cart = () => {
               </ListGroup.Item>
             ))}
           </ListGroup>
-
+          <div className="d-flex justify-content-between mt-3">
           <Button variant="secondary" onClick={clearCart} className="mt-3">
             Clear Cart
           </Button>
+          <Button as={Link} to="/checkout" variant="success" className="mt-3">
+            Checkout
+          </Button>
+          </div>
         </>
       )}
     </Container>

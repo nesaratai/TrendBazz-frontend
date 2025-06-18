@@ -26,11 +26,10 @@ const Landing = () => {
   }, []);
 
   return (
-    <main>
-      <Container>
-        <h1> Welcome to TrendBazz </h1>
+   
+      <Container className="mt-4">
+        <h1> Welcome to TrendBazz </h1><br></br>
   
-
         <Row>
           {products &&
             products.map((product) => (
@@ -58,7 +57,6 @@ const Landing = () => {
             ))}
         </Row>
       </Container>
-    </main>
   );
 };
 
