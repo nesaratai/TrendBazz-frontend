@@ -1,49 +1,55 @@
 import { createContext, useState, useEffect } from 'react';
+// Import service
+import {
+  loadCartFromStorage,
+  saveCartToStorage,
+} from '../services/cartService';
 
+// Create a new context for the cart
 const CartContext = createContext();
 
+// Define the provider component
 const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState(() => {
-    const stored = localStorage.getItem('cartItems');
-    return stored ? JSON.parse(stored) : [];
-  });
+  // Initialize cartItems state from localStorage (if any)
+  const [cartItems, setCartItems] = useState(() => loadCartFromStorage());
 
-  // Sync with localStorage whenever cartItems change
   useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    // Save to localStorage on change
+    saveCartToStorage(cartItems); 
   }, [cartItems]);
-  // add items to cart
+
+// Add items to cart
   const addToCart = (product) => {
     setCartItems((prev) => {
-      const existing = prev.find(item => item._id === product._id || item._id === product._id);
-      if (existing) {
-        return prev.map(item =>
-          item._id === product._id || item._id === product._id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      } else {
-        return [...prev, { ...product, quantity: 1 }];
-      }
+      const existing = prev.find(item => item._id === product._id);
+      // If already in cart, increase the quantity
+      return existing
+        ? prev.map(item =>
+            item._id === product._id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          )
+        : [...prev, { ...product, quantity: 1 }];
     });
   };
- //Remove Item form cart
+
+//Remove Item form cart
   const removeFromCart = (id) => {
-    setCartItems((prev) =>
-      prev.filter(item => item._id !== id && item._id !== id)
-    );
+    setCartItems((prev) => prev.filter(item => item._id !== id));
   };
+
 // Clear Cart items
   const clearCart = () => {
+    // Reset cartItems to empty array
     setCartItems([]);
   };
 
+// Provide cart state and functions to all children components
   return (
-    <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, clearCart }}
-    >
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
 };
-export {CartProvider, CartContext};
+
+export { CartProvider, CartContext };
