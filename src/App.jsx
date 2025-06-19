@@ -11,6 +11,7 @@ import Cart from './components/Cart/Cart';
 import { UserContext } from './contexts/UserContext';
 
 const App = () => {
+  console.log(UserContext)
   const { user } = useContext(UserContext);
 
   return (

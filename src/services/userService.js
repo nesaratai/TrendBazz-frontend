@@ -18,7 +18,26 @@ const index = async () => {
   }
 };
 
+const singleUser = async (userId) =>{
+  try {
+    const res = await fetch(`${BASE_URL}/${userId}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      });
+    const data = await res.json();
+
+    if (data.err) {
+      throw new Error(data.err);
+    }
+    console.log('newdata2', data.user)
+    return data.user
+    
+  } catch (err) {
+    console.log(err);
+    throw new Error(err);
+  }
+}
 
 export {
   index,
+  singleUser,
 };

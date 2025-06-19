@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 import { signIn } from '../../services/authService';
 
 import { UserContext } from '../../contexts/UserContext';
+import { singleUser } from '../../services/userService';
 
 const SignInForm = () => {
   const navigate = useNavigate();
@@ -20,14 +21,12 @@ const SignInForm = () => {
     setMessage('');
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
-
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
       // This function doesn't exist yet, but we'll create it soon.
       // It will cause an error right now
       const signedInUser = await signIn(formData);
-
       setUser(signedInUser);
       navigate('/');
     } catch (err) {
