@@ -9,16 +9,21 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile'
 import Checkout from './components/Checkout/Checkout';
 import Cart from './components/Cart/Cart';
+import Footer from './components/Footer/Footer';
 import { UserContext } from './contexts/UserContext';
 import AddProductForm from './components/Product/AddProductForm';
 import EditProductForm from './components/Product/EditProductForm';
+import About from './components/AboutUs/AboutUs';
+import './app.css'
 const App = () => {
   console.log(UserContext)
   const { user } = useContext(UserContext);
 
   return (
-    <>
+    <div className="app-container">
+  
       <NavBar />
+      <main className="content">
       {/* Add the Routes component to wrap our individual routes*/}
       <Routes>
         <Route path='/' element={<Landing /> } />
@@ -27,6 +32,7 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/about" element={<About />} />
         {user?.role === 'Admin' ? (
           <>
           <Route path="/dashboard" element={<Dashboard />} />
@@ -41,7 +47,10 @@ const App = () => {
           </>
             )}
       </Routes>
-    </>
+     
+    </main>
+     <Footer />
+     </div>
   );
 };
 
