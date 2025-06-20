@@ -1,0 +1,27 @@
+.container.my-5 {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 1rem 1.5rem;
+    background-color: #F2E8DF; 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(134, 166, 157, 0.2); 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3B3B3B; 
+  }
+  .container.my-5 h2 {
+    color: #396556;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 2.25rem;
+    text-align: center;
+  }
+  .container.my-5 p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    color: #555; 
+  }
+  .container.my-5 strong {
+    color: #F2B263;
+    font-weight: 700;
+  }

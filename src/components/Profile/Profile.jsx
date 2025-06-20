@@ -4,7 +4,7 @@ import { UserContext, UserProvider } from '../../contexts/UserContext';
 import { singleUser } from '../../services/userService';
 import { getUserOrders } from '../../services/orderService';
 import { Table } from 'react-bootstrap';
-
+import './Profile.css'
 const Profile = () => {
   const { user } = useContext(UserContext);
   const [orders, setOrders] = useState([]);
@@ -52,8 +52,6 @@ const Profile = () => {
       <p>Name: {singleUserProfile.fname} {singleUserProfile.lname}</p>
       <p>Date of Birth: {singleUserProfile.dob}</p>
       <p>Email: {singleUserProfile.email}</p>
-      <h2>Orders</h2>
-      {/* add more profile details here */}
       <h4 className="mt-5">My Orders</h4>
       {orders.length === 0 ? (
         <p>You haven’t placed any orders yet.</p>

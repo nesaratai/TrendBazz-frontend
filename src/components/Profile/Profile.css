@@ -1,0 +1,32 @@
+
+
+  .container.mt-4 h2 {
+    color: #40544e;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 2.25rem; 
+    border-bottom: 2px solid #F2B263;
+    padding-bottom: 0.5rem;
+  }
+
+  .container.mt-4 h4 {
+    color: #F2B263;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .container.mt-4 p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-size: 1.05rem;
+    color: #3B3B3B;
+  }
