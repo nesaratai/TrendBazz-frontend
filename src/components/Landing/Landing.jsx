@@ -6,9 +6,9 @@ import { UserContext } from '../../contexts/UserContext';
 
 const Landing = () => {
   const [products, setProducts] = useState(null);
-  const { addToCart } = useContext(CartContext); 
+  const { addToCart } = useContext(CartContext);
   const { user } = useContext(UserContext);
-  
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -26,7 +26,6 @@ const Landing = () => {
   }, []);
 
   return (
-   
       <Container className="mt-4">
         <h1> Welcome to TrendBazz </h1><br></br>
   

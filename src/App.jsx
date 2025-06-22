@@ -10,6 +10,7 @@ import Profile from './components/Profile/Profile'
 import Checkout from './components/Checkout/Checkout';
 import Cart from './components/Cart/Cart';
 import Footer from './components/Footer/Footer';
+import Category from './components/Category/Category';
 import { UserContext } from './contexts/UserContext';
 import AddProductForm from './components/Product/AddProductForm';
 import EditProductForm from './components/Product/EditProductForm';
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/about" element={<About />} />
+        <Route path="/category/:categoryName" element={<Category />} />
         {user?.role === 'Admin' ? (
           <>
           <Route path="/dashboard" element={<Dashboard />} />

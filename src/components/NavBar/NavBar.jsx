@@ -1,9 +1,9 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Container, Form, Button, InputGroup, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-
 import { Link } from 'react-router';
 import { UserContext } from '../../contexts/UserContext';
 import { CartContext } from '../../contexts/CartContext';
+import { getAllCategories } from '../../services/categoryService';
 import './NavBar.css'; 
 import logo from '../../assets/logo.png'
 
@@ -14,6 +14,21 @@ const NavBar = () => {
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const formattedTotal = total.toFixed(2);
     const [searchTerm, setSearchTerm] = useState('');
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+      const fetchCategories = async () => {
+        try {
+          const data = await getAllCategories();
+          setCategories(data);
+        } catch (error) {
+          console.error('Error fetching categories:', error);
+        }
+      };
+  
+      fetchCategories();
+    }, []);
+
     // Add the handleSignOut function
     const handleSignOut = () => {
       // Clear the token from localStorage
@@ -45,11 +60,20 @@ const NavBar = () => {
           <Navbar.Collapse id="main-navbar">
             <Nav className="ms-auto align-items-center">
               <Nav.Link as={Link} to="/">Home</Nav.Link>
-              <NavDropdown title="Store" id="store-dropdown">
-                <NavDropdown.Item as={Link} to="/category/electronics">Electronics</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/category/fashion">Fashion</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/category/home">Home & Garden</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/category/home">Books</NavDropdown.Item>
+              <NavDropdown className="text-capitalize" title="Store" id="store-dropdown">
+                {categories.length > 0 ? (
+                  categories.map(category => (
+                    <NavDropdown.Item
+                      key={category._id}
+                      as={Link}
+                      to={`/category/${category.name.toLowerCase()}`}
+                    >
+                      {category.name}
+                    </NavDropdown.Item>
+                  ))
+                ) : (
+                  <NavDropdown.Item disabled>Loading...</NavDropdown.Item>
+                )}
               </NavDropdown>
               <Nav.Link as={Link} to="/about">About Us</Nav.Link>
   
