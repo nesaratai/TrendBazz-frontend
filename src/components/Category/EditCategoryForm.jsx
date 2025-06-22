@@ -17,7 +17,7 @@ const EditCategoryForm = () => {
         setCategoryName(category.name);
         setDescription(category.description || '');
       } catch {
-        // silently ignore errors here
+        console.error('Failed to Fetch:', err.message);
       }
     };
     fetchCategory();
@@ -29,7 +29,7 @@ const EditCategoryForm = () => {
       await categoryService.updateCategory(id, { name: categoryName, description });
       navigate('/dashboard');
     } catch {
-      // silently ignore errors here
+        console.error('Failed to update category:', err.message);
     }
   };
 
