@@ -1,5 +1,6 @@
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/categories`;
 
+// Get all categories
 const getAllCategories = async () => {
   try {
     const response = await fetch(BASE_URL);
@@ -11,7 +12,19 @@ const getAllCategories = async () => {
   }
 };
 
+// Get a single category by ID
+const getCategoryById = async (id) => {
+  try {
+    const response = await fetch(`${BASE_URL}/${id}`);
+    if (!response.ok) throw new Error('Category not found');
+    return await response.json();
+  } catch (error) {
+    console.error('Failed to get category:', error);
+    throw error;
+  }
+};
 
+// Add a new category
 const addCategory = async (categoryData) => {
   try{
     const res = await fetch(BASE_URL, {
@@ -27,6 +40,7 @@ const addCategory = async (categoryData) => {
   }
 };
 
+// Update category by ID
 const updateCategory = async (id, data) => {
   try{
     const res = await fetch(`${BASE_URL}/${id}`, {
@@ -42,6 +56,7 @@ const updateCategory = async (id, data) => {
   }
 };
 
+// Delete category by ID
 const deleteCategory = async (id) => {
   try {
     const res = await fetch(`${BASE_URL}/${id}`, { method: 'DELETE' });
@@ -57,5 +72,6 @@ export {
   getAllCategories,
   addCategory,
   updateCategory,
-  deleteCategory
+  deleteCategory,
+  getCategoryById
 };

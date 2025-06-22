@@ -14,6 +14,8 @@ import Category from './components/Category/Category';
 import { UserContext } from './contexts/UserContext';
 import AddProductForm from './components/Product/AddProductForm';
 import EditProductForm from './components/Product/EditProductForm';
+import AddCategoryForm from './components/Category/AddCategoryForm';
+import EditCategoryForm from './components/Category/EditCategoryForm';
 import About from './components/AboutUs/AboutUs';
 import './app.css'
 const App = () => {
@@ -40,6 +42,8 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-product" element={<AddProductForm />} />
           <Route path="/edit-product/:id" element={<EditProductForm />} />
+          <Route path="/add-category" element={<AddCategoryForm />} />
+          <Route path="/edit-category/:id" element={<EditCategoryForm />} />
           </>
           ) : (
           // Redirect non-admin users away from /dashboard
