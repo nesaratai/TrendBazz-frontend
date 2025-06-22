@@ -3,19 +3,28 @@ import { Container, Row, Col, Button, Card, Table, Form } from 'react-bootstrap'
 import { UserContext } from '../../contexts/UserContext';
 import { useNavigate } from 'react-router';
 import { useProduct } from '../../contexts/ProductContext';
+import { useCategory } from '../../contexts/CategoryContext';
 import * as userService from '../../services/userService';
 import './Dashboard.css'
+
 const Dashboard = () => {
+  // get category lis and delete function for categories
+  const { categories, deleteCategory } = useCategory();
   // Get product list and delete function from ProductContext
   const { products, deleteProduct } = useProduct();
   // Get current user from context
   const { user } = useContext(UserContext);
   const [users, setUsers] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState('');
+  const [selectedCategoryId, setSelectedCategoryId] = useState('');
+  const [showProductConfirm, setShowProductConfirm] = useState(false);
+  const [showCategoryConfirm, setShowCategoryConfirm] = useState(false);
   const navigate = useNavigate();
   // Find the selected product using its ID
   const selectedProduct = products.find(p => p._id === selectedProductId);
-  const [showConfirm, setShowConfirm] = useState(false);
+  // Find the selected categoyr by its id
+  const selectedCategory = categories.find(c => c._id === selectedCategoryId);
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -37,9 +46,10 @@ const Dashboard = () => {
           Welcome <strong><em>{user.lname}, {user.fname}</em></strong>
         </h1>
         <p>
-          This is the dashboard page where you can see a list of all the users' information and you can edit or delete products and categories.
+          This is the dashboard page where you can see a list of all the user's information and you can edit or delete products and categories.
         </p>
       </div>
+
       <Row className="mt-4">
         <Col md={6}>
           <Card className="mb-4">
@@ -79,19 +89,22 @@ const Dashboard = () => {
                   <Button
                     variant="danger"
                     className="dashboard-btn dashboard-btn-danger me-2 mb-2"
-                    onClick={() => setShowConfirm(true)}
+                    onClick={() => setShowProductConfirm(true)}
                   >
                     Delete Product
                   </Button>
 
-                  {showConfirm && (
+                  {showProductConfirm && (
                     <div className="mt-2">
                       <p>Are you sure you want to delete <strong>{selectedProduct?.name}</strong>?</p>
-                      <Button variant="outline-danger" size="sm"className="me-2"
+                      <Button
+                        variant="outline-danger"
+                        size="sm"
+                        className="me-2"
                         onClick={() => {
                           deleteProduct(selectedProduct._id);
                           setSelectedProductId('');
-                          setShowConfirm(false);
+                          setShowProductConfirm(false);
                         }}
                       >
                         Yes
@@ -99,7 +112,8 @@ const Dashboard = () => {
                       <Button
                         variant="outline-secondary"
                         size="sm"
-                        onClick={() => setShowConfirm(false)}
+                        className="me-2"
+                        onClick={() => setShowProductConfirm(false)}
                       >
                         No
                       </Button>
@@ -111,13 +125,76 @@ const Dashboard = () => {
           </Card>
         </Col>
 
+
         <Col md={6}>
           <Card className="mb-4">
             <Card.Body>
               <Card.Title>Category Management</Card.Title>
-              <Button variant="primary" className="me-2 mb-2">Add New Category</Button>
-              <Button variant="warning" className="me-2 mb-2">Edit Category</Button>
-              <Button variant="danger" className="mb-2">Delete Category</Button>
+              <Button
+                variant="primary"
+                className="me-2 mb-2"
+                onClick={() => navigate('/add-category')}
+              >
+                Add New Category
+              </Button>
+
+              <Form.Select
+                className="mb-3 text-capitalize"
+                value={selectedCategoryId}
+                onChange={(e) => setSelectedCategoryId(e.target.value)}
+              >
+                <option value="">-- Select a Category --</option>
+                {categories.map(category => (
+                  <option key={category._id} value={category._id}>
+                    {category.name}
+                  </option>
+                ))}
+              </Form.Select>
+
+              {selectedCategory && (
+                <>
+                  <p className='text-capitalize'><strong>Selected:</strong> {selectedCategory.name}</p>
+                  <Button
+                    variant="warning"
+                    className="me-2 mb-2"
+                    onClick={() => navigate(`/edit-category/${selectedCategory._id}`)}
+                  >
+                    Edit Category
+                  </Button>
+                  <Button
+                    variant="danger"
+                    className="mb-2"
+                    onClick={() => setShowCategoryConfirm(true)}
+                  >
+                    Delete Category
+                  </Button>
+
+                  {showCategoryConfirm && (
+                    <div className="mt-2">
+                      <p>Are you sure you want to delete <strong>{selectedCategory.name}</strong>?</p>
+                      <Button
+                        variant="outline-danger"
+                        size="sm"
+                        className="me-2"
+                        onClick={() => {
+                          deleteCategory(selectedCategory._id);
+                          setSelectedCategoryId('');
+                          setShowCategoryConfirm(false);
+                        }}
+                      >
+                        Yes
+                      </Button>
+                      <Button
+                        variant="outline-secondary"
+                        size="sm"
+                        onClick={() => setShowCategoryConfirm(false)}
+                      >
+                        No
+                      </Button>
+                    </div>
+                  )}
+                </>
+              )}
             </Card.Body>
           </Card>
         </Col>

@@ -11,6 +11,51 @@ const getAllCategories = async () => {
   }
 };
 
+
+const addCategory = async (categoryData) => {
+  try{
+    const res = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(categoryData),});
+
+  if (!res.ok) throw new Error('Failed to add category');
+  return res.json();
+  } catch (error) {
+  console.error('Failed to to add Category:', error);
+  return { success: false, error: error.message };
+  }
+};
+
+const updateCategory = async (id, data) => {
+  try{
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error('Failed to update category');
+    return res.json();
+  } catch (error) {
+    console.error('Failed to update category:', error);
+    return { success: false, error: error.message };
+  }
+};
+
+const deleteCategory = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error('Failed to delete category');
+    return res.json();
+  } catch (error) {
+    console.error('Failed to delete category:', error);
+    return { success: false, error: error.message };
+  } 
+};
+
 export {
   getAllCategories,
+  addCategory,
+  updateCategory,
+  deleteCategory
 };
