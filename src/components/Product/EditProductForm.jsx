@@ -118,13 +118,14 @@ const EditProductForm = () => {
           <Form.Label>Category</Form.Label>
           <Form.Select
             name="category_id"
+            className="text-capitalize"
             value={formData.category_id || ''}
             onChange={handleChange}
             required
           >
-            <option value="">-- Select a category --</option>
+            <option  value="">-- Select a category --</option>
             {categories.map(cat => (
-              <option key={cat._id} value={cat._id}>
+              <option  key={cat._id} value={cat._id}>
                 {cat.name}
               </option>
             ))}

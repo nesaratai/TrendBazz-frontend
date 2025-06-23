@@ -94,6 +94,7 @@ const AddProductForm = () => {
                 onChange={handleChange}
                 required
                 min="0"
+                step="0.01"
               />
             </Form.Group>
           </Col>

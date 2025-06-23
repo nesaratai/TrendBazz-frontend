@@ -17,6 +17,7 @@ import EditProductForm from './components/Product/EditProductForm';
 import AddCategoryForm from './components/Category/AddCategoryForm';
 import EditCategoryForm from './components/Category/EditCategoryForm';
 import About from './components/AboutUs/AboutUs';
+import ProductDetails from './components/Product/ProductDetails';
 import './app.css'
 const App = () => {
   console.log(UserContext)
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/about" element={<About />} />
         <Route path="/category/:categoryName" element={<Category />} />
+        <Route path="/products/:productId" element={<ProductDetails />} />
         {user?.role === 'Admin' ? (
           <>
           <Route path="/dashboard" element={<Dashboard />} />

@@ -1,0 +1,92 @@
+.landing-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+.landing-row {
+    margin-top: 1rem;
+}
+  
+.landing-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+  
+.landing-card:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+  
+.landing-card-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  
+  .landing-card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+.landing-card-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+  
+.landing-card-text {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 3em;
+}
+  
+.landing-card-stock {
+    color: #888;
+    font-style: italic;
+}
+  
+.landing-btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+}
+  
+.landing-btn-primary:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+  
+.landing-btn-primary:disabled {
+    background-color: #a3c0f9;
+    cursor: not-allowed;
+}
+  
+.landing-card-link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+  
+.landing-card-link > button {
+    pointer-events: auto;
+}
