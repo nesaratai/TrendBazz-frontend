@@ -33,7 +33,9 @@ const ProductDetails = () => {
           <h2>{product.name}</h2>
           <p>{product.description}</p>
           <p><strong>Price:</strong> ${product.price.toFixed(2)}</p>
+          {user?.role === 'Admin' && (
           <p><strong>Stock:</strong> {product.stock}</p>
+          )}
           <Button
             variant="primary"
             onClick={() => addToCart(product)}

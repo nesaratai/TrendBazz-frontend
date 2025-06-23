@@ -116,7 +116,7 @@ const NavBar = () => {
           <Button
             type="submit"
             variant="primary"
-            className="btn-sm"
+            className="btn-sm search-button"
           >
             Search
           </Button>

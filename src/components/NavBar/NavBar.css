@@ -37,3 +37,14 @@
 .navbar.luxury .dropdown-item {
   color: #5c4000;
 }
+.search-button {
+  background-color: #ff7a00;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.search-button:hover {
+  background-color: #cc6600;
+}
