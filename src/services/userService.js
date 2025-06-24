@@ -28,7 +28,6 @@ const singleUser = async (userId) =>{
     if (data.err) {
       throw new Error(data.err);
     }
-    console.log('newdata2', data.user)
     return data.user
     
   } catch (err) {

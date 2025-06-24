@@ -81,7 +81,6 @@ const deleteProduct = async (id) => {
 
 const getProductsByCategory = async (categoryName) => {
   const res = await fetch(`${BASE_URL}/category/${categoryName}`);
-  console.log('Fetching from:', `${BASE_URL}/category/${categoryName}`);
   if (!res.ok) throw new Error('Failed to fetch products by category');
   return res.json();
 };
