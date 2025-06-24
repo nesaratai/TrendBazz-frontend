@@ -56,8 +56,7 @@ const Dashboard = () => {
             <Card.Body>
               <Card.Title>Product Management</Card.Title>
               <Button
-                variant="primary"
-                className="dashboard-btn dashboard-btn-primary me-2 mb-3"
+                className="dashboard-btn me-2 mb-3"
                 onClick={() => navigate('/add-product')}
               >
                 Add New Product
@@ -81,14 +80,14 @@ const Dashboard = () => {
                   <p><strong>Selected:</strong> {selectedProduct.name}</p>
                   <Button
                     variant="warning"
-                    className="dashboard-btn dashboard-btn-warning me-2 mb-2"
+                    className="dashboard-btn-warning me-2 mb-2"
                     onClick={() => navigate(`/edit-product/${selectedProduct._id}`)}
                   >
                     Edit Product
                   </Button>
                   <Button
                     variant="danger"
-                    className="dashboard-btn dashboard-btn-danger me-2 mb-2"
+                    className="dashboard-btn-danger me-2 mb-2"
                     onClick={() => setShowProductConfirm(true)}
                   >
                     Delete Product
@@ -132,7 +131,7 @@ const Dashboard = () => {
               <Card.Title>Category Management</Card.Title>
               <Button
                 variant="primary"
-                className="me-2 mb-2"
+                className="dashboard-btn me-2 mb-3"
                 onClick={() => navigate('/add-category')}
               >
                 Add New Category
@@ -156,14 +155,14 @@ const Dashboard = () => {
                   <p className='text-capitalize'><strong>Selected:</strong> {selectedCategory.name}</p>
                   <Button
                     variant="warning"
-                    className="me-2 mb-2"
+                    className="dashboard-btn-warning me-2 mb-2"
                     onClick={() => navigate(`/edit-category/${selectedCategory._id}`)}
                   >
                     Edit Category
                   </Button>
                   <Button
                     variant="danger"
-                    className="mb-2"
+                    className="dashboard-btn-danger me-2 mb-2"
                     onClick={() => setShowCategoryConfirm(true)}
                   >
                     Delete Category

@@ -6,7 +6,7 @@
   }
   
   .dashboard-welcome em {
-    color: #0d6efd;
+    color: #86A69D;
     font-style: italic;
   }
   
@@ -17,27 +17,45 @@
     line-height: 1.6;
   }
 
-  .dashboard-btn {
-    border-radius: 30px;
-    padding: 10px 24px;
-    font-weight: 500;
-    font-size: 16px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  .dashboard-btn{
+    padding: 8px 16px;
+    border: unset;
+    border-radius: 15px;
+    color: rgb(0, 0, 0);
+    z-index: 1;
+    background: #d99d4f;
+    position: relative;
+    font-weight: 600;
+    font-size: 14px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
   }
-  
+
+  .dashboard-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #e476019d;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+  }
+
   .dashboard-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    color: #1f1111;
+    background-color: inherit;
   }
   
-  
-  .dashboard-btn-primary {
-    background-color: #0d6efd;
-    color: white;
-    border: none;
+  .dashboard-btn:hover::before{
+    width: 100%;
   }
-  
   .dashboard-btn-warning {
     background-color: #ffc107;
     color: #212529;
