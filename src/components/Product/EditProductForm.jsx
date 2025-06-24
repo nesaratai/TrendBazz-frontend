@@ -132,7 +132,7 @@ const EditProductForm = () => {
           </Form.Select>
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button className='dashboard-btn' variant="primary" type="submit">
           Update Product
         </Button>
       </Form>

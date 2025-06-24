@@ -139,7 +139,7 @@ const AddProductForm = () => {
           </Form.Select>
         </Form.Group>
 
-        <Button type="submit" variant="primary">Add Product</Button>
+        <Button className='dashboard-btn' type="submit" variant="primary">Add Product</Button>
       </Form>
     </Container>
   );
