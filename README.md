@@ -4,12 +4,12 @@
 
 ## 🔗 Live Demo
 
-> 🚧 Coming soon 
+- 🚧 [TrendBazz ](https://trend-bazz-frontend.vercel.app/)
 
-## 📸 Screenshots
+## 🧩 GitHub Repositories
 
-
----
+- [🌐 Frontend (React)](https://github.com/nesaratai/TrendBazz-frontend)
+- [🛠️ Backend (Express)](https://github.com/nesaratai/TrendBazz-backend)
 
 ## 🚀 Features
 
@@ -35,15 +35,33 @@
 | Backend        | Express.js                                      |
 | Database       | MongoDB with Mongoose ODM                       |
 | Authentication | JWT                                             |
-| Deployment     |  / MongoDB Atlas                                |
+| Deployment     |  Heruku(BackEnd) / Vercel(FrontEnd)                                |
 
 ---
-
-## 🗃️ Project Structure
 
 ## 🔐 User Roles
 - **Admin:** Has access to full dashboard for managing users, orders, categories, and products
 - **Customer:** Can browse, add to cart, and order products
+
+## 📚 Resources
+- [Stack Overflow](https://stackoverflow.com/) — for community help and code questions
+- [MDN Web Docs](https://developer.mozilla.org/) — for JavaScript and web API documentation
+- [Trello Board](https://trello.com/b/y5qeajwh/trendbazz) — project roadmap
+
+## ERD
+
+![ERD](./public/TrendBazz%20ERD.jpeg)
+
+## WireFrames
+![Wireframes](./public/TREND%20BAZZ.png)
+## 📋 Project Planning
+
+- 📌 **Trello Board**: [View the TrendBazz Roadmap](https://trello.com/b/y5qeajwh/trendbazz)
+
+## Trello Dashboard 
+![Trello](./public/Trello%20Dashboard%20for%20TrendBazz.png)
+
+
 
 ## 🧪 Future Improvements
 - Search & filtering

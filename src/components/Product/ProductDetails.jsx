@@ -37,6 +37,7 @@ const ProductDetails = () => {
           <p><strong>Stock:</strong> {product.stock}</p>
           )}
           <Button
+            className='dashboard-btn'
             variant="primary"
             onClick={() => addToCart(product)}
             disabled={!user}
