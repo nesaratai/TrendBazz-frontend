@@ -18,7 +18,7 @@ import AddCategoryForm from './components/Category/AddCategoryForm';
 import EditCategoryForm from './components/Category/EditCategoryForm';
 import About from './components/AboutUs/AboutUs';
 import ProductDetails from './components/Product/ProductDetails';
-import './app.css'
+import './App.css'
 const App = () => {
   console.log(UserContext)
   const { user } = useContext(UserContext);
