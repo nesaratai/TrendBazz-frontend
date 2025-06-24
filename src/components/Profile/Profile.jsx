@@ -50,7 +50,7 @@ const Profile = () => {
     <div className="container mt-4">
       <h2>Welcome, {singleUserProfile.username}!</h2>
       <p>Name: {singleUserProfile.fname} {singleUserProfile.lname}</p>
-      <p>Date of Birth: {singleUserProfile.dob}</p>
+      <p>Date of Birth: {singleUserProfile.dob ? new Date(singleUserProfile.dob).toLocaleDateString() : ''}</p>
       <p>Email: {singleUserProfile.email}</p>
       <h4 className="mt-5">My Orders</h4>
       {orders.length === 0 ? (

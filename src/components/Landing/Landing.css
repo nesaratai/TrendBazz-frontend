@@ -24,14 +24,19 @@
 .landing-card:hover {
     box-shadow: 0px 0px 30px 1px rgba(185, 191, 77, 0.3);
 }
-  
+.landing-row > .col,
+.landing-row > [class^='col-'] {
+    display: flex;
+}  
 .landing-card-img {
     width: 70%;
     height: auto;
     object-fit: cover;
     object-fit: cover;
     display: block;
-    margin: 0 auto
+    margin: 0 auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
   
 .landing-card-body {
