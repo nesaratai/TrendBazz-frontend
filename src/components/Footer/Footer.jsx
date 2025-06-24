@@ -1,8 +1,9 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import './Footer.css'
+
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light py-4 mt-5">
+    <footer className="">
       <Container>
         <Row>
           <Col md={4}>
@@ -20,7 +21,7 @@ const Footer = () => {
 
         <hr className="bg-light" />
 
-        <p className="text-center mb-0">&copy; {new Date().getFullYear()} TrendBazz. All rights reserved.</p>
+        <p className="text-center">&copy; {new Date().getFullYear()} TrendBazz. All rights reserved.</p>
       </Container>
     </footer>
   );

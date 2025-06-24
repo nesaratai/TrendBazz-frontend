@@ -38,7 +38,7 @@
   color: #5c4000;
 }
 .search-button {
-  background-color: #ff7a00;
+  background-color: #d99d4f;
   border: none;
   color: #fff;
   font-weight: 600;
@@ -46,5 +46,5 @@
 }
 
 .search-button:hover {
-  background-color: #cc6600;
+  background-color: #7b5b34;
 }

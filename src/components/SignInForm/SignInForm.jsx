@@ -2,7 +2,7 @@
 import { Form, Button, Container } from 'react-bootstrap';
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
-
+import './SignInForm.css';
 import { signIn } from '../../services/authService';
 
 import { UserContext } from '../../contexts/UserContext';
@@ -35,44 +35,43 @@ const SignInForm = () => {
   };
 
   return (
-    <main>
-      <Container style={{ maxWidth: '500px' }}>
-        <h1 className="my-4">Sign In</h1>
-        <p>{message}</p>
-  
-        <Form autoComplete="off" onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="username">
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              type="text"
-              value={formData.username}
-              name="username"
-              onChange={handleChange}
-              required
-            />
-          </Form.Group>
-  
-          <Form.Group className="mb-3" controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              value={formData.password}
-              name="password"
-              onChange={handleChange}
-              required
-            />
-          </Form.Group>
-  
-          <div className="d-flex justify-content-between">
-            <Button variant="primary" type="submit">
-              Sign In
-            </Button>
-            <Button variant="secondary" onClick={() => navigate('/')}>
-              Cancel
-            </Button>
-          </div>
-        </Form>
-      </Container>
+    <main className="page-bg">
+      <form className="form" onSubmit={handleSubmit}>
+        <p className="title">Sign In</p>
+        <p className="message">{message || 'Welcome back!'}</p>
+
+        <label>
+          <input
+            className="input"
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            placeholder=" "
+            required
+          />
+          <span>Username</span>
+        </label>
+
+        <label>
+          <input
+            className="input"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder=" "
+            required
+          />
+          <span>Password</span>
+        </label>
+
+        <button className="submit" type="submit">Sign In</button>
+
+        <p className="signin">
+          Don't have an account? <a href="/signup">Register</a>
+        </p>
+      </form>
     </main>
   );
 };

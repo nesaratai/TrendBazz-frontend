@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { signUp } from '../../services/authService';
 import { useContext } from 'react';
-
+import './SignUpForm.css'
 import { UserContext } from '../../contexts/UserContext';
 
 
@@ -14,6 +14,10 @@ const SignUpForm = () => {
 
   const [message, setMessage] = useState('');
   const [formData, setFormData] = useState({
+    fname: '',
+    lname: '',
+    dob: '',
+    email: '',
     username: '',
     password: '',
     passwordConf: '',
@@ -45,55 +49,110 @@ const SignUpForm = () => {
   };
 
   return (
-    <main>
-      <Container style={{ maxWidth: '500px' }}>
-        <h1 className="my-4">Sign Up</h1>
-        <p>{message}</p>
-  
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="username">
-            <Form.Label>Username</Form.Label>
-            <Form.Control
+    <main className='page'>
+      <form className="form" onSubmit={handleSubmit}>
+        <p className="title">Register</p>
+        <p className="message">Signup now and get full access to our app.</p>
+
+        <div className="flex">
+          <label>
+            <input
+              className="input"
               type="text"
-              name="username"
-              value={username}
+              name="fname"
+              value={formData.fname}
               onChange={handleChange}
+              placeholder=" "
               required
             />
-          </Form.Group>
-  
-          <Form.Group className="mb-3" controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              name="password"
-              value={password}
+            <span>Firstname</span>
+          </label>
+          <label>
+            <input
+              className="input"
+              type="text"
+              name="lname"
+              value={formData.lname}
               onChange={handleChange}
+              placeholder=" "
               required
             />
-          </Form.Group>
-  
-          <Form.Group className="mb-3" controlId="confirmPassword">
-            <Form.Label>Confirm Password</Form.Label>
-            <Form.Control
-              type="password"
-              name="passwordConf"
-              value={passwordConf}
-              onChange={handleChange}
-              required
-            />
-          </Form.Group>
-  
-          <div className="d-flex justify-content-between">
-            <Button variant="primary" type="submit" disabled={isFormInvalid()}>
-              Sign Up
-            </Button>
-            <Button variant="secondary" onClick={() => navigate('/')}>
-              Cancel
-            </Button>
-          </div>
-        </Form>
-      </Container>
+            <span>Lastname</span>
+          </label>
+        </div>
+
+        <label>
+          <input
+            className="input"
+            type="date"
+            name="dob"
+            value={formData.dob}
+            onChange={handleChange}
+            required
+          />
+          <span>Date of Birth</span>
+        </label>
+
+        <label>
+          <input
+            className="input"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder=" "
+            required
+          />
+          <span>Email</span>
+        </label>
+
+        <label>
+          <input
+            className="input"
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            placeholder=" "
+            required
+          />
+          <span>Username</span>
+        </label>
+
+        <label>
+          <input
+            className="input"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder=" "
+            required
+          />
+          <span>Password</span>
+        </label>
+
+        <label>
+          <input
+            className="input"
+            type="password"
+            name="passwordConf"
+            value={formData.passwordConf}
+            onChange={handleChange}
+            placeholder=" "
+            required
+          />
+          <span>Confirm password</span>
+        </label>
+
+        <button className="submit" type="submit" disabled={isFormInvalid()}>
+          Sign Up
+        </button>
+
+        <p className="signin">
+          Already have an account? <a href="/">Signin</a>
+        </p>
+      </form>
     </main>
   );
 };
