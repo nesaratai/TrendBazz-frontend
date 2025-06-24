@@ -61,7 +61,7 @@ const Landing = () => {
                   </Link>
                   <Card.Footer>
                   <button
-                      className="landing-btn-primary btn btn-primary"
+                      className="landing-btn-primary"
                       disabled={!user}
                       onClick={() => addToCart(product)}>
                         {user ? 'Add to Cart':'Sign in to Add'}</button>
